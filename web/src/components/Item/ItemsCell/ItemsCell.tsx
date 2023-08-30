@@ -12,7 +12,6 @@ export const QUERY = gql`
       name
       urgent
       checked
-      description
       noteId
     }
   }

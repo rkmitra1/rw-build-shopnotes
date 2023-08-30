@@ -1,9 +1,8 @@
-import type { FindShopNotes } from 'types/graphql'
+import type { FindShopNotes, ShopNote } from 'types/graphql'
 
-import { Link, routes } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
-import ShopNotes from 'src/components/ShopNote/ShopNotes'
+import ShopNoteCard from 'src/components/ShopNoteCard/ShopNoteCard'
 
 export const QUERY = gql`
   query FindShopNotes {
@@ -12,6 +11,13 @@ export const QUERY = gql`
       name
       description
       updatedAt
+      items {
+        id
+        name
+        checked
+        urgent
+        noteId
+      }
     }
   }
 `
@@ -19,12 +25,11 @@ export const QUERY = gql`
 export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => {
+  //  normally this would take us the new shopnote page. We do not use this in this app.
   return (
-    <div className="rw-text-center">
-      {'No shopNotes yet. '}
-      <Link to={routes.newShopNote()} className="rw-link">
-        {'Create one?'}
-      </Link>
+    <div className="rw-text-center mx-auto w-96 rounded-xl border-2 border-clear-500 bg-clear-300 p-2">
+      No ShopNotes yet. <br />
+      Create one using the +ShopNote button.
     </div>
   )
 }
@@ -34,5 +39,16 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ shopNotes }: CellSuccessProps<FindShopNotes>) => {
-  return <ShopNotes shopNotes={shopNotes} />
+  // Sort shopNotes by name
+  const sortedShopNotes = [...shopNotes].sort((a, b) =>
+    a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
+  )
+
+  return (
+    <>
+      {sortedShopNotes.map((shopnote) => (
+        <ShopNoteCard shopnote={shopnote as ShopNote} key={shopnote.id} />
+      ))}
+    </>
+  )
 }

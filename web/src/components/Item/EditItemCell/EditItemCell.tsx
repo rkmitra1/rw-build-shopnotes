@@ -14,7 +14,6 @@ export const QUERY = gql`
       name
       urgent
       checked
-      description
       noteId
     }
   }
@@ -26,7 +25,6 @@ const UPDATE_ITEM_MUTATION = gql`
       name
       urgent
       checked
-      description
       noteId
     }
   }

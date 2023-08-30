@@ -28,7 +28,6 @@ describe('items', () => {
         name: 'String',
         urgent: true,
         checked: true,
-        description: 'String',
         noteId: scenario.item.two.noteId,
       },
     })
@@ -36,7 +35,6 @@ describe('items', () => {
     expect(result.name).toEqual('String')
     expect(result.urgent).toEqual(true)
     expect(result.checked).toEqual(true)
-    expect(result.description).toEqual('String')
     expect(result.noteId).toEqual(scenario.item.two.noteId)
   })
 

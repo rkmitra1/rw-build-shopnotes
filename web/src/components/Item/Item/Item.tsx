@@ -1,10 +1,10 @@
+import type { DeleteItemMutationVariables, FindItemById } from 'types/graphql'
+
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { checkboxInputTag } from 'src/lib/formatters'
-
-import type { DeleteItemMutationVariables, FindItemById } from 'types/graphql'
 
 const DELETE_ITEM_MUTATION = gql`
   mutation DeleteItemMutation($id: Int!) {
@@ -60,10 +60,6 @@ const Item = ({ item }: Props) => {
             <tr>
               <th>Checked</th>
               <td>{checkboxInputTag(item.checked)}</td>
-            </tr>
-            <tr>
-              <th>Description</th>
-              <td>{item.description}</td>
             </tr>
             <tr>
               <th>Note id</th>

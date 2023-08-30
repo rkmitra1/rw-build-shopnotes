@@ -4,7 +4,6 @@ export const schema = gql`
     name: String!
     urgent: Boolean!
     checked: Boolean!
-    description: String!
     note: ShopNote!
     noteId: Int!
   }
@@ -18,7 +17,6 @@ export const schema = gql`
     name: String!
     urgent: Boolean!
     checked: Boolean!
-    description: String!
     noteId: Int!
   }
 
@@ -26,13 +24,20 @@ export const schema = gql`
     name: String
     urgent: Boolean
     checked: Boolean
-    description: String
     noteId: Int
+  }
+
+  type BatchPayload {
+    count: Int!
   }
 
   type Mutation {
     createItem(input: CreateItemInput!): Item! @requireAuth
     updateItem(id: Int!, input: UpdateItemInput!): Item! @requireAuth
     deleteItem(id: Int!): Item! @requireAuth
+    updateItemUrgent(id: Int!, urgent: Boolean!): Item @requireAuth
+    updateItemChecked(id: Int!, checked: Boolean!): Item @requireAuth
+    updateItemName(id: Int!, name: String!): Item @requireAuth
+    deleteItems(noteId: Int!): BatchPayload @skipAuth
   }
 `

@@ -15,7 +15,10 @@ const Routes = () => {
   return (
     <Router>
       <Route path="/" page={HomePage} name="home" />
-      <Set wrap={ScaffoldLayout} title="Items" titleTo="items" buttonLabel="New Item" buttonTo="newItem">
+      <Route path="/shop-notes/new" page={ShopNoteNewShopNotePage} name="newShopNote" />
+
+      {/* // Note: these scaffold routes are not used in this app, but are here for reference. */}
+      {/* <Set wrap={ScaffoldLayout} title="Items" titleTo="items" buttonLabel="New Item" buttonTo="newItem">
         <Route path="/items/new" page={ItemNewItemPage} name="newItem" />
         <Route path="/items/{id:Int}/edit" page={ItemEditItemPage} name="editItem" />
         <Route path="/items/{id:Int}" page={ItemItemPage} name="item" />
@@ -26,7 +29,7 @@ const Routes = () => {
         <Route path="/shop-notes/{id:Int}/edit" page={ShopNoteEditShopNotePage} name="editShopNote" />
         <Route path="/shop-notes/{id:Int}" page={ShopNoteShopNotePage} name="shopNote" />
         <Route path="/shop-notes" page={ShopNoteShopNotesPage} name="shopNotes" />
-      </Set>
+      </Set> */}
       <Route notfound page={NotFoundPage} />
     </Router>
   )

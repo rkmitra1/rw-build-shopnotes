@@ -17,11 +17,10 @@ model ShopNote {
 }
 
 model Item {
-  id          Int      @id @default(autoincrement())
-  name        String
-  urgent      Boolean
-  checked     Boolean
-  description String
-  note        ShopNote @relation(fields: [noteId], references: [id])
-  noteId      Int
+  id      Int      @id @default(autoincrement())
+  name    String
+  urgent  Boolean
+  checked Boolean
+  note    ShopNote @relation(fields: [noteId], references: [id])
+  noteId  Int
 }
