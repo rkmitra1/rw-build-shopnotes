@@ -34,8 +34,8 @@
   - ShopNoteCard
   - ShopNotesItemsDisplay
 - services/sdl
-  - add mutations
-    - note: demonstrate using mutation in page and component as well as regulary cell
+- add mutations
+  - note: demonstrate using mutation in page and component as well as regulary cell
 - tests
 - storybook
 
@@ -49,11 +49,15 @@
 - tailwindcss
 - postgresql
 - heroicons
+- tailwind/typography
+- demonstrated - markdown use in code
 
 ## miscellaneaus
 
-- This app illustrate using pretty much stock Rewoodjs. The only package addtions are for tailwindcss and heroicons.
+- This app illustrate using stock Rewoodjs. The only package addtions are for tailwindcss, heroicons, tailwind/typography.
   - You can easily not include heroicons. I just added it to illustrate easy addtions of unique icons.
 - While "Design driven development" using storybook is effective in some cases, Redwood's hot reloading allows design driven development straight from running the component in the development server.
 - Unique features
   - updates directly from the page, rather than going to another page and having to hit save.
+  - help modal display content from markdown file.
+  - illustrate debouncing of input field entry to prevent excessive database updates.

@@ -138,7 +138,7 @@ const ShopNoteCard = ({ shopnote }: { shopnote: ShopNote }) => {
         <div className="flex items-center justify-between space-x-2">
           <button
             title={'Delete shopNote ' + shopnote.id}
-            className="-pb-1 rounded-md border border-delete-800 bg-delete-500 px-1 text-xs text-gray-600"
+            className="-pb-1 rounded-md border border-delete-500 bg-delete-600 px-1 text-[0.8em] text-gray-700"
             onClick={() => onDeleteClick(shopnote)}
           >
             Delete
@@ -146,7 +146,7 @@ const ShopNoteCard = ({ shopnote }: { shopnote: ShopNote }) => {
 
           <button
             title={'Clear shopNote items ' + shopnote.id}
-            className="-pb-1 rounded-md border border-clear-800 bg-clear-500 px-1 text-xs text-gray-600"
+            className="-pb-1 rounded-md border border-clear-500 bg-clear-600 px-1 text-[0.8em] text-gray-700"
             onClick={() => onClearClick(shopnote)}
           >
             Clear

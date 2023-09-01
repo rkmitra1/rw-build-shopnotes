@@ -4,6 +4,7 @@ import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
 import Markdown from 'markdown-to-jsx'
 
 import helpContent from './Help.md?raw'
+// const helpContent = `test`
 
 export function HelpModal() {
   const [showModal, setShowModal] = useState(false)
@@ -20,7 +21,7 @@ export function HelpModal() {
             <div className="mt-4 w-1/4 px-2 text-center">
               <h3 className="text-2xl font-semibold">Help</h3>
               <button
-                className="-pb-1 rounded-md border border-clear-800 bg-clear-500 px-1 text-xs text-gray-600"
+                className="-pb-1 mt-4 rounded-md border border-clear-500 bg-clear-600 px-1 text-sm text-gray-700"
                 type="button"
                 onClick={() => setShowModal(false)}
               >

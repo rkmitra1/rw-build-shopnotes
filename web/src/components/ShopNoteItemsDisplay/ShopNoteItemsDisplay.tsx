@@ -147,7 +147,7 @@ const ShopNoteItemsDisplay = ({ item }: { item: Item }) => {
       <span className="">
         <input
           key={item.id}
-          className="w-56 border-b-2 border-primary-100 bg-transparent text-primary-100"
+          className="border-b-2 border-secondary-300 bg-transparent text-white md:w-56"
           type="text"
           defaultValue={item.name}
           onChange={(e) => onUpdateName(item.id, e.target.value)}

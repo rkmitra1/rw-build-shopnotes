@@ -9,7 +9,9 @@ import './index.css'
 
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
-    <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
+    {/* Intentionally remove PageTitle for this app */}
+    {/* <RedwoodProvider titleTemplate="%PageTitle | %AppTitle"> */}
+    <RedwoodProvider titleTemplate="%AppTitle">
       <RedwoodApolloProvider>
         <Routes />
       </RedwoodApolloProvider>
