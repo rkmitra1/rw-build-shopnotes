@@ -3,11 +3,12 @@ import { useState } from 'react'
 import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
 import Markdown from 'markdown-to-jsx'
 
-import helpContent from './Help.md?raw'
+// import helpContent from '/Help.md?url&raw' // import of markdown file is in public folder
+import helpContent from './Help.md?raw' // import of markdown file is component folder
 // const helpContent = `test`
 
-export function HelpModal() {
-  const [showModal, setShowModal] = useState(false)
+export function HelpModal({ initialShowModal = false }) {
+  const [showModal, setShowModal] = useState(initialShowModal)
 
   return (
     <>

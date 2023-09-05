@@ -1,5 +1,3 @@
-// THIS STORY DOES NOT WORK BECAUSE OF THE LOAD OF THE MARKDOWN FILE
-
 import type { Meta, StoryObj } from '@storybook/react'
 
 import HelpModal from './HelpModal'
@@ -12,4 +10,8 @@ export default meta
 
 type Story = StoryObj<typeof HelpModal>
 
-export const Primary: Story = {}
+export const Primary: Story = {
+  args: {
+    initialShowModal: true,
+  },
+}
