@@ -1,5 +1,8 @@
+import { useCallback } from 'react'
+
 import { PlusCircleIcon } from '@heroicons/react/24/outline'
 import { format } from 'date-fns'
+import debounce from 'lodash.debounce'
 import type { Item, ShopNote } from 'types/graphql'
 
 import { useMutation } from '@redwoodjs/web'
@@ -109,12 +112,29 @@ const ShopNoteCard = ({ shopnote }: { shopnote: ShopNote }) => {
     }
   }
 
+  const debouncedUpdateName = useCallback(
+    debounce(
+      (id: any, name: any) => updateShopNoteName({ variables: { id, name } }),
+      1000
+    ),
+    [] // will be created only once initially
+  )
+
   const onUpdateShopNoteName = (id: number, name: string) => {
-    updateShopNoteName({ variables: { id, name } })
+    debouncedUpdateName(id, name)
   }
 
+  const debouncedUpdateDescription = useCallback(
+    debounce(
+      (id: any, description: any) =>
+        updateShopNoteDescription({ variables: { id, description } }),
+      1000
+    ),
+    [] // will be created only once initially
+  )
+
   const onUpdateShopNoteDescription = (id: number, description: string) => {
-    updateShopNoteDescription({ variables: { id, description } })
+    debouncedUpdateDescription(id, description)
   }
 
   return (
